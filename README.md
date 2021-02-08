@@ -4,7 +4,7 @@
 ### Purpose of the System:
 The purpose of the Software Asset Management System is to enable the organization to create a dynamic system, to meet the demands of the rapidly changing business environment, to adapt to new situations and to manage the software inventory in the best way. With the technology they use; It helps the institution in determining strategies that improve the dynamic characteristics of the units, system infrastructure and platforms in the institution.
 
-### Tools Used:
+### Used Technologies:
 Microsoft SQL Server Management Studio 2018 version 15.0.00.5 is used as the database system.
 ASP.NET Core project and MVC framework are used on Visual Studio 2017 Community.
 
