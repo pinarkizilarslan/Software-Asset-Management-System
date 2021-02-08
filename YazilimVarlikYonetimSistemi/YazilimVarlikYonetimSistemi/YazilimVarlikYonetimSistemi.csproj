@@ -45,6 +45,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -658,6 +664,7 @@
     <Content Include="Content\AdminLayout\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\AdminLayout\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\AdminLayout\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="libman.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -692,6 +699,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DataContext\YazilimVarlikYonetimSistemiContext.cs" />
+    <Compile Include="Models\Model\Department.cs" />
+    <Compile Include="Models\Model\Dependent.cs" />
+    <Compile Include="Models\Model\Infrastructure.cs" />
+    <Compile Include="Models\Model\Login.cs" />
+    <Compile Include="Models\Model\Software.cs" />
+    <Compile Include="Models\Model\Usage.cs" />
+    <Compile Include="Models\Model\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -711,7 +727,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

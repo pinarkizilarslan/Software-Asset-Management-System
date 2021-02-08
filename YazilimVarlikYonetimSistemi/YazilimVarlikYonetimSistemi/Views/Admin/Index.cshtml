@@ -1,10 +1,16 @@
-﻿
+﻿@model IEnumerable<YazilimVarlikYonetimSistemi.Models.Model.Department>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="row">
+
+    @foreach (var item in Model)
+    {
+        <li>@item.D_Name</li>
+    }
+
     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box blue-bg">
             <i class="fa fa-cubes"></i>
