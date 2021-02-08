@@ -6,7 +6,7 @@ The purpose of the Software Asset Management System is to enable the organizatio
 
 ### Used Technologies:
 Microsoft SQL Server Management Studio 2018 version 15.0.00.5 is used as the database system.
-ASP.NET Core project and MVC framework are used on Visual Studio 2017 Community.
+ASP.NET project and MVC framework are used on Visual Studio 2017 Community.
 
 ### Made Works:
 - Interface design with HTML, CSS, JS and Bootstrap libraries was designed for user convenience.
