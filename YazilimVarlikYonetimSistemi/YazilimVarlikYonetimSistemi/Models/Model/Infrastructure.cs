@@ -23,6 +23,9 @@ namespace YazilimVarlikYonetimSistemi.Models.Model
         public string Min_Storeage { get; set; }
 
 
-        public ICollection<Software> Dependents { get; set; }
+        public int S_ID { get; set; }
+        public Software Software { get; set; }
+
+       
     }
 }

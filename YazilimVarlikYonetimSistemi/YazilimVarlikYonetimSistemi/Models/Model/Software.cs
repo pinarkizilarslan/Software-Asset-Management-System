@@ -41,9 +41,8 @@ namespace YazilimVarlikYonetimSistemi.Models.Model
         public string S_Version { get; set; }
         
 
-        public int I_ID { get; set; }
-        public Infrastructure Infrastructure { get; set; }
-        
+        public ICollection<Infrastructure> Infrastructures { get; set; }
+
         public ICollection<Usage> Usage { get; set; }
     }
 }

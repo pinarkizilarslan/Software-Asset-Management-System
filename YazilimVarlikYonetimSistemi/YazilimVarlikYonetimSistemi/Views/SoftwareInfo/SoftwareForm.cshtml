@@ -1,0 +1,54 @@
+﻿@model YazilimVarlikYonetimSistemi.Models.Model.Software
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet", "SoftwareInfo", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model=>model.S_Name)
+        @Html.TextBoxFor(model => model.S_Name, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.S_Version)
+        @Html.TextBoxFor(model => model.S_Version, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Agreement_ID)
+        @Html.TextBoxFor(model => model.Agreement_ID, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.License_Type)
+        @Html.TextBoxFor(model => model.License_Type, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.License_Option)
+        @Html.TextBoxFor(model => model.License_Option, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Software_Cost)
+        @Html.TextBoxFor(model => model.Software_Cost, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Maintenance_Cost)
+        @Html.TextBoxFor(model => model.Maintenance_Cost, new { @class = "form-control" })
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(model => model.In_House) In House
+        </label>
+    </div>
+    <div class="radio">
+        <label>
+            @Html.RadioButtonFor(model => model.Open_Source_Code, true) Open Source Code
+        </label>
+        <br />
+        <label>
+            @Html.RadioButtonFor(model => model.Open_Source_Code, false) Not Open Source Code
+        </label>
+    </div>
+    @Html.HiddenFor(model => model.S_ID)
+    <button type="submit" class="btn btn-default">Kaydet</button>
+}
+
