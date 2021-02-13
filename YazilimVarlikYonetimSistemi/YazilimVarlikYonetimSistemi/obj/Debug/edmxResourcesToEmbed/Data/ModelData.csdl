@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YazilimVarlikYonetimSistemiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="YazilimVarlikYonetimSistemiEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="selectInfra" ReturnType="Collection(YazilimVarlikYonetimSistemiModel.selectInfra_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="selectInfra_Result">
+    <Property Type="String" Name="OS" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Min_RAM" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Min_Storeage" Nullable="false" MaxLength="50" />
+  </ComplexType>
+</Schema>

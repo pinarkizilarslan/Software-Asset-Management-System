@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("Kaydet", "SoftwareInfo", FormMethod.Post))
+@using (Html.BeginForm("Save", "SoftwareInfo", FormMethod.Post))
 {
     <div class="form-group">
         @Html.LabelFor(model=>model.S_Name)

@@ -1,8 +1,37 @@
-﻿
+﻿@using YazilimVarlikYonetimSistemi.Models.Model
+    @model List<Infrastructure>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<td><a class="btn btn-success" href="/Infrastructure/Create/">Yeni Alt Yapı Ekle</a></td>
+<h2>Gerekli Alt Yapı Bilgileri</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            @*<th>Software Name</th>*@
+            <th>OS</th>
+            <th>Min Ram</th>
+            <th>Min Storeage</th>
+            <th>Güncelle</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ınfrastructure in Model)
+        {
+            <tr>
+                @*<td>@ınfrastructure.I_ID</td>
+                <td>@ınfrastructure.Software.S_Name</td>*@
+                <td>@ınfrastructure.OS</td>
+                <td>@ınfrastructure.Min_RAM</td>
+                <td>@ınfrastructure.Min_Storeage</td>
+
+                <td><a class="btn btn-primary" href="/Infrastructure/Update/@ınfrastructure.I_ID">Güncelle</a></td>
+                <td><a class="btn btn-warning" href="/Infrastructure/Delete/@ınfrastructure.I_ID">Sil</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
 

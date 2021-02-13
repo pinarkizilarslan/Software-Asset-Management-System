@@ -26,7 +26,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Kaydet(Software software)
+        public ActionResult Save(Software software)
         {
             if(software.S_ID==0)
             {

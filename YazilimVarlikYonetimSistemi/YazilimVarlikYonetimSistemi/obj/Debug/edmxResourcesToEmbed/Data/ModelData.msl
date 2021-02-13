@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YazilimVarlikYonetimSistemiModelStoreContainer" CdmEntityContainer="YazilimVarlikYonetimSistemiEntities">
+    <FunctionImportMapping FunctionImportName="selectInfra" FunctionName="YazilimVarlikYonetimSistemiModel.Store.selectInfra">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="YazilimVarlikYonetimSistemiModel.selectInfra_Result">
+          <ScalarProperty Name="OS" ColumnName="OS" />
+          <ScalarProperty Name="Min_RAM" ColumnName="Min_RAM" />
+          <ScalarProperty Name="Min_Storeage" ColumnName="Min_Storeage" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
