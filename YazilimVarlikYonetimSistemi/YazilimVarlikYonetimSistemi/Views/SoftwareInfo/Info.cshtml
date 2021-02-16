@@ -1,7 +1,7 @@
 ﻿@using YazilimVarlikYonetimSistemi.Models.Model
 @model List<Infrastructure>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Info";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -14,7 +14,6 @@
             <th>İşletim Sistemmi</th>
             <th>Minimum Ram</th>
             <th>Minimum Depolama</th>
-            <th>Yazılım</th>
             <th>Güncelle</th>
             <th>Sil</th>
         </tr>
@@ -26,8 +25,7 @@
                 <td>@infra.OS</td>
                 <td>@infra.Min_RAM</td>
                 <td>@infra.Min_Storeage</td>
-                <td>@infra.Software.S_Name</td>
-               
+
                 <td><a class="btn btn-primary" href="/Infrastructure/Update/@infra.I_ID">Güncelle</a></td>
                 <td><a class="btn btn-warning" href="/Infrastructure/Delete/@infra.I_ID">Sil</a></td>
             </tr>

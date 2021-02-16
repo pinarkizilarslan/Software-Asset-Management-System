@@ -18,7 +18,7 @@ namespace YazilimVarlikYonetimSistemi.Models.Model
         
         public DateTime Usage_Time { get; set; }
 
-        [Required]
+        
         public DateTime ExpiryDate { get; set; }
 
         [Required]
@@ -27,7 +27,7 @@ namespace YazilimVarlikYonetimSistemi.Models.Model
         [Required]
         public DateTime Update_Start_Date { get; set; }
 
-        [Required]
+        
         public DateTime Update_Finish_Date { get; set; }
         
 

@@ -26,7 +26,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(Software software)
+        public ActionResult Kaydet(Software software)
         {
             if(software.S_ID==0)
             {
@@ -67,6 +67,13 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             db.Software.Remove(deleteSoftware);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+
+        public ActionResult Info(int id)
+        {
+            var model = db.Infrastructure.Where(x => x.S_ID == id).ToList();
+            return View(model);
         }
     }
 }

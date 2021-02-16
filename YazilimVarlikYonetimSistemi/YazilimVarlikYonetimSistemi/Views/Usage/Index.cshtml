@@ -1,0 +1,46 @@
+﻿@using YazilimVarlikYonetimSistemi.Models.Model
+@model List<Usage>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<td><a class="btn btn-success" href="/Usage/Create/">Kullanım Bilgisi Ekle</a></td>
+
+<h2>Kullanım Bilgileri</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+
+            <th>Yazılım Adı</th>
+            <th>Departman Adı</th>
+            <th>Yazılım Anahtarı</th>
+            <th>Edinme Tarihi</th>
+            <th>Güncelleme Başlangıç Tarihi</th>
+            <th>Güncelleme Bitiş Tarihi</th>
+            <th>Kullanma Süresi</th>
+            <th>Bitiş Zamanı</th>
+            <th>Güncelleme</th>
+            <th>Sil</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usage in Model)
+        {
+        <tr>
+            <td>@usage.Software.S_Name</td>
+            <td>@usage.Department.D_Name</td>
+            <td>@usage.Software_Key</td>
+            <td>@usage.Acquisition_Date.ToShortDateString()</td>
+            <td>@usage.Update_Start_Date.ToShortDateString()</td>
+            <td>@usage.Update_Finish_Date.ToShortDateString()</td>
+            <td>@(usage.ExpiryDate.Day - usage.Acquisition_Date.Day)</td>
+            <td>@usage.ExpiryDate.ToShortDateString()</td>
+
+            <td><a class="btn btn-primary" href="/Usage/Update/@usage.Usage_ID">Güncelle</a></td>
+            <td><a class="btn btn-warning" href="/Usage/Delete/@usage.Usage_ID">Sil</a></td>
+        </tr>
+        }
+    </tbody>
+</table>
+

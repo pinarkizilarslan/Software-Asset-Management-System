@@ -1,0 +1,60 @@
+﻿@using YazilimVarlikYonetimSistemi.Models.Model
+@model List<Dependent>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Birim Adı</th>
+            <th>Birim Adresi</th>
+            <th>Birim E-maili</th>
+            <th>Birim Tel No</th>
+            <th>Yazılımlar</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dep in Model)
+        {
+            <tr>
+                <td>@dep.Department.D_Name</td>
+                <td>@dep.Department.D_Address</td>
+                <td>@dep.Department.D_Email</td>
+                <td>@dep.Department.D_TelNo</td>
+
+                <td><a class="btn btn-info" href="/Department/Info/@dep.Department.D_ID">Yazılımlar</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Kullanıcı Adı</th>
+            <th>Kullanıcı Soyadı</th>
+            <th>Kullanıcı E-maili</th>
+            <th>Kullanıcı Tel No</th>
+            <th>Kullanıcı Tipi</th>
+            <th>Birim Adı</th>
+            <th>Başlama Tarihi</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.User.First_Name</td>
+                <td>@user.User.Last_Name</td>
+                <td>@user.User.U_Email</td>
+                <td>@user.User.U_TelNo</td>
+                <td>@user.User.U_Type</td>
+                <td>@user.Department.D_Name</td>
+                <td>@user.StartDate.ToShortDateString()</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,46 @@
+﻿@model YazilimVarlikYonetimSistemi.Models.Model.Usage
+@{
+    ViewBag.Title = "UsageForm";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@using (Html.BeginForm("Kaydet", "Usage", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.Software.S_Name)
+        @Html.DropDownListFor(model => model.Software.S_ID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Department.D_Name)
+        @Html.DropDownListFor(model => model.Department.D_ID, (List<SelectListItem>)ViewBag.valued, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Software_Key)
+        @Html.TextBoxFor(model => model.Software_Key, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Acquisition_Date)
+        @Html.TextBoxFor(model => model.Acquisition_Date, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Update_Start_Date)
+        @Html.TextBoxFor(model => model.Update_Start_Date, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Update_Finish_Date)
+        @Html.TextBoxFor(model => model.Update_Finish_Date, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Usage_Time)
+        @Html.TextBoxFor(model => model.Usage_Time, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ExpiryDate)
+        @Html.TextBoxFor(model => model.ExpiryDate, new { @class = "form-control" })
+    </div>
+
+    @Html.HiddenFor(model => model.Usage_ID)
+    <button type="submit" class="btn btn-default">Kaydet</button>
+}
+
+
