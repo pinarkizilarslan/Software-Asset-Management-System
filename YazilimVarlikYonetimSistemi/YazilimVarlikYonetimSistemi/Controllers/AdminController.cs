@@ -13,6 +13,9 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         // GET: Admin
         public ActionResult Index()
         {
+            ViewBag.SoftwareCount = db.Software.Count();
+            ViewBag.DepartmentCount = db.Department.Count();
+            ViewBag.UserCount = db.User.Count();
             var sorgu = db.Department.ToList();
             return View(sorgu);
         }

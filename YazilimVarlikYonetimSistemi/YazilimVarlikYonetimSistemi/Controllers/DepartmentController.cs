@@ -15,7 +15,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         // GET: Department
         public ActionResult Index(int id)
         {
-            var model = db.Dependent.Include(x => x.Department).Include(x => x.User).Where(x => x.Department.D_ID==id).ToList();
+            var model = db.Department.Include(x => x.Usage).Include(x => x.Dependents).Where(x => x.D_ID==id).ToList();
             return View(model);
         }
 

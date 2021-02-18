@@ -43,9 +43,11 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             }
             else
             {
-                //var model = db.Infrastructure.Find(infra.I_ID);
-                db.Entry(infra).State = EntityState.Modified;
-               
+                var x = db.Infrastructure.Find(infra.I_ID);
+                x.OS = infra.OS;
+                x.Min_RAM = infra.Min_RAM;
+                x.Min_Storeage = infra.Min_Storeage;
+                x.Software = software;
             }
 
             db.SaveChanges();

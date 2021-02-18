@@ -53,7 +53,15 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             }
             else
             {
-                
+                var x = db.Usage.Find(usage.Usage_ID);
+                x.Software_Key = usage.Software_Key;
+                x.Update_Start_Date = usage.Update_Start_Date;
+                x.Update_Finish_Date = usage.Update_Finish_Date;
+                x.Usage_Time = usage.Usage_Time;
+                x.ExpiryDate = usage.ExpiryDate;
+                x.Acquisition_Date = usage.Acquisition_Date;
+                x.Software = software;
+                x.Department = department;
             }
 
             db.SaveChanges();

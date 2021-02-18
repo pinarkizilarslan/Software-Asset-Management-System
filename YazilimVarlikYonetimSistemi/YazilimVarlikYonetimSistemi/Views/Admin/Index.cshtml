@@ -3,18 +3,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <div class="row">
-
-    @foreach (var item in Model)
-    {
-        <li>@item.D_Name</li>
-    }
-
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i>Ana Sayfa</h3>       
+    </div>
+</div>
+<div class="row">
     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box blue-bg">
             <i class="fa fa-cubes"></i>
-            <div class="count">110</div>
+            <div class="count">@ViewBag.SoftwareCount</div>
             <div class="title">Yazılım</div>
         </div>
         <!--/.info-box-->
@@ -23,7 +21,7 @@
     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box green-bg">
             <i class="fa fa-cubes"></i>
-            <div class="count">8</div>
+            <div class="count">@ViewBag.DepartmentCount</div>
             <div class="title">Birim</div>
         </div>
         <!--/.info-box-->
@@ -33,7 +31,7 @@
     <div class="col-lg-4 col-md-3 col-sm-12 col-xs-12">
         <div class="info-box brown-bg">
             <i class="fa fa-cubes"></i>
-            <div class="count">48</div>
+            <div class="count">@ViewBag.UserCount</div>
             <div class="title">Kullanıcı</div>
         </div>
         <!--/.info-box-->
