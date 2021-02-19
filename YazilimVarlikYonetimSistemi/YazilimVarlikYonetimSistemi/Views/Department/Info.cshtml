@@ -17,9 +17,7 @@
             <th>Edinme Tarihi</th>
             <th>Güncelleme Başlangıç Tarihi</th>
             <th>Güncelleme Bitiş Tarihi</th>
-            <th>Kullanma Süresi</th>
-            <th>Bitiş Zamanı</th>
-            <th>Güncelleme</th>
+            <th>Sonlanma Tarihi</th>
             <th>Sil</th>
         </tr>
     </thead>
@@ -32,9 +30,7 @@
             <td>@usage.Acquisition_Date.ToShortDateString()</td>
             <td>@usage.Update_Start_Date.ToShortDateString()</td>
             <td>@usage.Update_Finish_Date.ToShortDateString()</td>
-            <td>@usage.Usage_Time.ToShortDateString()</td>
             <td>@usage.ExpiryDate.ToShortDateString()</td>
-            <td></td>
             <td><a class="btn btn-warning" href="/Usage/Delete/@usage.Usage_ID">Sil</a></td>
         </tr>
         }

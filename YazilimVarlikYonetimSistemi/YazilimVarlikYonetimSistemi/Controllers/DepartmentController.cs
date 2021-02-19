@@ -65,26 +65,5 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        //public ActionResult Delete(int id)
-        //{
-        //    //var ınfrastructure = db.Infrastructure.Find(id);
-        //    //if (ınfrastructure == null)
-        //    //{
-        //    //    return HttpNotFound();
-        //    //}
-        //    //db.Software.Remove(ınfrastructure);
-        //    //db.SaveChanges();
-
-           
-            
-        //    var reservation = new Usage { Usage_ID = id };
-        //    var model = reservation.D_ID;
-        //    db.Usage.Attach(reservation);
-        //    db.Usage.Remove(reservation);
-        //    db.SaveChanges();
-
-        //    return RedirectToAction("UsageForm");
-        //}
     }
 }

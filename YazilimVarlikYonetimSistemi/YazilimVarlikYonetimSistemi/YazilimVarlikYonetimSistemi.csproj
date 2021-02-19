@@ -700,6 +700,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InfrastructureController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\SoftwareInfoController.cs" />
     <Compile Include="Controllers\UsageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -736,6 +737,10 @@
     <Content Include="Views\Department\Info.cshtml" />
     <Content Include="Views\Department\DepartForm.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
+    <Content Include="Views\SoftwareInfo\Update.cshtml" />
+    <Content Include="Views\Report\Report.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

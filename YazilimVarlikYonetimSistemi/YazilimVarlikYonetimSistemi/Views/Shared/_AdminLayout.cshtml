@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿@{
+    if (Session["adminid"] == null)
+    {
+        Response.Redirect("/Admin/Login/");
+    }
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -69,7 +76,7 @@
                             <i class="icon-task-l"></i>
                             <span class="badge bg-important">6</span>
                         </a>
-                        <ul class="dropdown-menu extended tasks-bar">
+                        @*<ul class="dropdown-menu extended tasks-bar">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
                                 <p class="blue">You have 6 pending letter</p>
@@ -145,7 +152,7 @@
                             <li class="external">
                                 <a href="#">See All Tasks</a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </li>
                     <!-- task notificatoin end -->
                     <!-- inbox notificatoin start-->
@@ -154,7 +161,7 @@
                             <i class="icon-envelope-l"></i>
                             <span class="badge bg-important">5</span>
                         </a>
-                        <ul class="dropdown-menu extended inbox">
+                        @*<ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
                                 <p class="blue">You have 5 new messages</p>
@@ -210,7 +217,7 @@
                             <li>
                                 <a href="#">See all messages</a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </li>
                     <!-- inbox notificatoin end -->
                     <!-- alert notification start-->
@@ -220,7 +227,7 @@
                             <i class="icon-bell-l"></i>
                             <span class="badge bg-important">7</span>
                         </a>
-                        <ul class="dropdown-menu extended notification">
+                        @*<ul class="dropdown-menu extended notification">
                             <div class="notify-arrow notify-arrow-blue"></div>
                             <li>
                                 <p class="blue">You have 4 new notifications</p>
@@ -256,7 +263,7 @@
                             <li>
                                 <a href="#">See all notifications</a>
                             </li>
-                        </ul>
+                        </ul>*@
                     </li>
                     <!-- alert notification end-->
                     <!-- user login dropdown start-->
@@ -265,12 +272,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="~/Content/AdminLayout/img/adminSmall2.png">
                             </span>
-                            <span class="username">Admin</span>
+                            <span class="username">@Session["email"]</span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li class="eborder-top">
+                            @*<li class="eborder-top">
                                 <a href="#"><i class="icon_profile"></i> My Profile</a>
                             </li>
                             <li>
@@ -281,16 +288,16 @@
                             </li>
                             <li>
                                 <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                            </li>
+                            </li>*@
                             <li>
-                                <a href="login.html"><i class="icon_key_alt"></i> Log Out</a>
+                                <a href="/Admin/Logout/"><i class="icon_key_alt"></i>Çıkış Yap</a>
                             </li>
-                            <li>
+                            @*<li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
                             </li>
                             <li>
                                 <a href="documentation.html"><i class="icon_key_alt"></i> Documentation</a>
-                            </li>
+                            </li>*@
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -306,13 +313,11 @@
                 <ul class="sidebar-menu">
                     <li class="active">
                         <a class="" href="/Admin/Index">
-                            @*<i class="icon_house_alt"></i>*@
                             <span>Anasayfa</span>
                         </a>
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" class="">
-                            @*<i class="icon_desktop"></i>*@
                             <span>Mevcut Yazılımlar</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
@@ -324,7 +329,6 @@
                     </li>
                     <li class="sub-menu">
                         <a href="javascript:;" class="">
-                            @*<i class="icon_desktop"></i>*@
                             <span>Birimler</span>
                             <span class="menu-arrow arrow_carrot-right"></span>
                         </a>
@@ -339,15 +343,15 @@
                             <li><a class="" href="/Department/Index/8">Yapı İşleri ve Teknik D.B.</a></li>
                         </ul>
                     </li>
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <span>Kullanıcılar</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
+                    <li class="active">
+                        <a class="" href="/User/Index">
+                            <span>Kullanıcı Bilgileri</span>
                         </a>
-                        <ul class="sub">
-                            <li><a class="" href="/User/Index/">Kullanıcı Bilgileri</a></li>
-                            <li><a class="" href="form_validation.html">Kullanılan Yazılımlar</a></li>
-                        </ul>
+                    </li>
+                    <li class="active">
+                        <a class="" href="/Report/Index">
+                            <span>Raporlama</span>
+                        </a>
                     </li>
                 </ul>
                 <!-- sidebar menu end-->
@@ -359,7 +363,7 @@
         <!--main content start-->
 
         <section id="main-content">
-            <section class="wrapper">                
+            <section class="wrapper">
                 @RenderBody()
             </section>
         </section>

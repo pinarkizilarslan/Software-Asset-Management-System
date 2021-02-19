@@ -1,13 +1,13 @@
 ﻿@model YazilimVarlikYonetimSistemi.Models.Model.Software
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Update";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-@using (Html.BeginForm("Kaydet", "SoftwareInfo", FormMethod.Post))
+@using (Html.BeginForm("Update", "SoftwareInfo", FormMethod.Post))
 {
     <div class="form-group">
-         Yazılım İsmi
+        Yazılım İsmi
         @Html.TextBoxFor(model => model.S_Name, new { @class = "form-control" })
     </div>
     <div class="form-group">

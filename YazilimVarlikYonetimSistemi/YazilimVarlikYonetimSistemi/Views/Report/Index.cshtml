@@ -1,0 +1,25 @@
+﻿@using YazilimVarlikYonetimSistemi.Models.Model
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Departman Adı</th>
+            <th>Rapor</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dept in Model)
+        {
+        <tr>
+            <td>@dept.D_Name</td>
+            <td><a class="btn btn-info" href="/Report/Report/@dept.D_ID">Rapor Ver</a></td>
+        </tr>
+        }
+    </tbody>
+</table>

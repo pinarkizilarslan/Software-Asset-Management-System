@@ -7,35 +7,35 @@
 @using (Html.BeginForm("Kaydet", "Usage", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(model => model.Software.S_Name)
+        Yazılım Adı
         @Html.DropDownListFor(model => model.Software.S_ID, (List<SelectListItem>)ViewBag.values, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Department.D_Name)
+        Birim Adı
         @Html.DropDownListFor(model => model.Department.D_ID, (List<SelectListItem>)ViewBag.valued, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Software_Key)
+        Yazılım Anahtarı
         @Html.TextBoxFor(model => model.Software_Key, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Acquisition_Date)
+        Edinme Tarihi
         @Html.TextBoxFor(model => model.Acquisition_Date, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Update_Start_Date)
+        Güncelleme Başlangıç Tarihi
         @Html.TextBoxFor(model => model.Update_Start_Date, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Update_Finish_Date)
+        Güncelleme Bitiş Tarihi
         @Html.TextBoxFor(model => model.Update_Finish_Date, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Usage_Time)
+        Kullanma Süresi
         @Html.TextBoxFor(model => model.Usage_Time, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.ExpiryDate)
+        Sonlanma Tarihi
         @Html.TextBoxFor(model => model.ExpiryDate, new { @class = "form-control" })
     </div>
 

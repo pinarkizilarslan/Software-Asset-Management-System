@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,45 +29,90 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         [HttpPost]
         public ActionResult Kaydet(Software software)
         {
-            if(software.S_ID==0)
+
+            try
             {
-                db.Software.Add(software);
+                SqlParameter param1 = new SqlParameter("@sName", software.S_Name);
+                SqlParameter param2 = new SqlParameter("@agreementID", software.Agreement_ID);
+                SqlParameter param3 = new SqlParameter("@licenseType", software.License_Type);
+                SqlParameter param4 = new SqlParameter("@licenseOption", software.License_Option);
+                SqlParameter param5 = new SqlParameter("@softwareCost", software.Software_Cost);
+                SqlParameter param6 = new SqlParameter("@maintaCost", software.Maintenance_Cost);
+                SqlParameter param7 = new SqlParameter("@inHouse", software.In_House);
+                SqlParameter param8 = new SqlParameter("@openSourceCode", software.Open_Source_Code);
+                SqlParameter param9 = new SqlParameter("@sVersion", software.S_Version);
+
+                db.Database.ExecuteSqlCommand("CreateSoftware @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param1, param2, param3, param4, param5, param6, param7, param8, param9);
+                return RedirectToAction("Index");
             }
-            else
+            catch
             {
-                //var updateSoftware = db.Software.Find(software.S_ID);
-                //if(updateSoftware==null)
-                //{
-                //    return HttpNotFound();
-                //}
-                //db.Entry(updateSoftware).State = EntityState.Modified;
-                db.Entry(software).State = System.Data.Entity.EntityState.Modified;
+                return View();
             }
-         
-            db.SaveChanges();
-            return RedirectToAction("Index");
+
         }
 
+        [HttpGet]
         public ActionResult Update(int id)
         {
             var model = db.Software.Find(id);
-            if(model==null)
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            return View("SoftwareForm",model);
+            return View("Update", model);
         }
 
-        public  ActionResult Delete(int id)
+        [HttpPost]
+        public ActionResult Update(int id, Software software)
         {
-            var deleteSoftware = db.Software.Find(id);
-            if(deleteSoftware==null)
+            var model = db.Software.Find(id);
+            if (model == null)
             {
                 return HttpNotFound();
             }
-            db.Software.Remove(deleteSoftware);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                SqlParameter param10 = new SqlParameter("@S_ID", id);
+                SqlParameter param1 = new SqlParameter("@sName", software.S_Name);
+                SqlParameter param2 = new SqlParameter("@agreementID", software.Agreement_ID);
+                SqlParameter param3 = new SqlParameter("@licenseType", software.License_Type);
+                SqlParameter param4 = new SqlParameter("@licenseOption", software.License_Option);
+                SqlParameter param5 = new SqlParameter("@softwareCost", software.Software_Cost);
+                SqlParameter param6 = new SqlParameter("@maintaCost", software.Maintenance_Cost);
+                SqlParameter param7 = new SqlParameter("@inHouse", software.In_House);
+                SqlParameter param8 = new SqlParameter("@openSourceCode", software.Open_Source_Code);
+                SqlParameter param9 = new SqlParameter("@sVersion", software.S_Version);
+
+                db.Database.ExecuteSqlCommand("UpdateSoftwaree @S_ID, @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param10, param1, param2, param3, param4, param5, param6, param7, param8, param9);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        
+
+        public ActionResult Delete(int id)
+        {
+            var deleteSoftware = db.Software.Find(id);
+            if (deleteSoftware == null)
+            {
+                return HttpNotFound();
+            }
+
+            try
+            {
+                SqlParameter param = new SqlParameter("@id", id);
+                db.Database.ExecuteSqlCommand("DeleteSoftware @id", param);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+           
         }
 
 

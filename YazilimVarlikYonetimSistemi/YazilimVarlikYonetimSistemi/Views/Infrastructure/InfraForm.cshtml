@@ -7,19 +7,19 @@
 @using (Html.BeginForm("Kaydet", "Infrastructure", FormMethod.Post))
 {
     <div class="form-group">
-        @Html.LabelFor(model => model.OS)
+        İşletim Sistemi
         @Html.TextBoxFor(model => model.OS, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Min_RAM)
+        Minimum RAM
         @Html.TextBoxFor(model => model.Min_RAM, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.Min_Storeage)
+        Minimum Depolama Alanı
         @Html.TextBoxFor(model => model.Min_Storeage, new { @class = "form-control" })
     </div>
     <div class="form-group">
-        @Html.LabelFor(model => model.S_ID)
+        Yazılım İsmi
         @Html.DropDownListFor(model=>model.Software.S_ID,(List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
     </div>
 

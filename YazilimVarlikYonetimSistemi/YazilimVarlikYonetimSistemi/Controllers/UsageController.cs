@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,25 +48,46 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             var department = db.Department.Where(x => x.D_ID == usage.Department.D_ID).FirstOrDefault();
             usage.Software = software;
             usage.Department = department;
-            if (usage.Usage_ID == 0)
+            
+            try
             {
-                db.Usage.Add(usage);
+                if(usage.Usage_ID==0)
+                {
+                    SqlParameter param1 = new SqlParameter("@SoftwareKey", usage.Software_Key);
+                    SqlParameter param2 = new SqlParameter("@UsageTime", usage.Usage_Time);
+                    SqlParameter param3 = new SqlParameter("@Expirydate", usage.ExpiryDate);
+                    SqlParameter param4 = new SqlParameter("@AcquisitionDate", usage.Acquisition_Date);
+
+                    SqlParameter param5 = new SqlParameter("@UpdateStartDate", usage.Update_Start_Date);
+                    SqlParameter param6 = new SqlParameter("@UpdateFinishDate", usage.Update_Finish_Date);
+                    SqlParameter param7 = new SqlParameter("@DID", usage.Department.D_ID);
+                    SqlParameter param8 = new SqlParameter("@SID", usage.Software.S_ID);
+
+                    db.Database.ExecuteSqlCommand("CreateUsage @SoftwareKey, @UsageTime, @Expirydate, @AcquisitionDate, @UpdateStartDate, @UpdateFinishDate, @DID, @SID", param1, param2, param3, param4, param5, param6, param7, param8);
+                }
+                else
+                {
+                    SqlParameter param1 = new SqlParameter("@SoftwareKey", usage.Software_Key);
+                    SqlParameter param2 = new SqlParameter("@UsageTime", usage.Usage_Time);
+                    SqlParameter param3 = new SqlParameter("@Expirydate", usage.ExpiryDate);
+                    SqlParameter param4 = new SqlParameter("@AcquisitionDate", usage.Acquisition_Date);
+
+                    SqlParameter param5 = new SqlParameter("@UpdateStartDate", usage.Update_Start_Date);
+                    SqlParameter param6 = new SqlParameter("@UpdateFinishDate", usage.Update_Finish_Date);
+                    SqlParameter param7 = new SqlParameter("@DID", usage.Department.D_ID);
+                    SqlParameter param8 = new SqlParameter("@SID", usage.Software.S_ID);
+                    SqlParameter param9 = new SqlParameter("@id", usage.Usage_ID);
+                    db.Database.ExecuteSqlCommand("UpdateUsage @id, @SoftwareKey, @UsageTime, @Expirydate, @AcquisitionDate, @UpdateStartDate, @UpdateFinishDate, @DID, @SID", param9, param1, param2, param3, param4, param5, param6, param7, param8);
+                
+                }
+               
+                return RedirectToAction("Index");
             }
-            else
+            catch
             {
-                var x = db.Usage.Find(usage.Usage_ID);
-                x.Software_Key = usage.Software_Key;
-                x.Update_Start_Date = usage.Update_Start_Date;
-                x.Update_Finish_Date = usage.Update_Finish_Date;
-                x.Usage_Time = usage.Usage_Time;
-                x.ExpiryDate = usage.ExpiryDate;
-                x.Acquisition_Date = usage.Acquisition_Date;
-                x.Software = software;
-                x.Department = department;
+                return View();
             }
 
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         public ActionResult Update(int id)
@@ -95,21 +117,19 @@ namespace YazilimVarlikYonetimSistemi.Controllers
 
         public ActionResult Delete(int id)
         {
-            //var ınfrastructure = db.Infrastructure.Find(id);
-            //if (ınfrastructure == null)
-            //{
-            //    return HttpNotFound();
-            //}
-            //db.Software.Remove(ınfrastructure);
-            //db.SaveChanges();
 
 
             var reservation = new Usage { Usage_ID = id };
-            db.Usage.Attach(reservation);
-            db.Usage.Remove(reservation);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
+            try
+            {
+                SqlParameter param = new SqlParameter("@id", id);
+                db.Database.ExecuteSqlCommand("DeleteUsage @id", param);
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

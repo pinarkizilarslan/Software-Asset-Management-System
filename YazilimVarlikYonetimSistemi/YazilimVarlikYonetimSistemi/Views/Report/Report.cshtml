@@ -1,0 +1,25 @@
+﻿@using YazilimVarlikYonetimSistemi.Models.Model
+@model List<Software>
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Yazılım Adı</th>
+            <th>Kalan Ay</th>
+   
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var software in Model)
+        {
+            <tr>
+                <td>@software.S_Name</td>
+                <td>@ViewBag.saat</td>
+            </tr>
+        }
+    </tbody>
+</table>
