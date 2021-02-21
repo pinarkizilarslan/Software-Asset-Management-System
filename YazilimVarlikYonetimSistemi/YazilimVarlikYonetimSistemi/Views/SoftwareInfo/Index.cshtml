@@ -1,5 +1,5 @@
 ﻿@using YazilimVarlikYonetimSistemi.Models.Model
-    @model List<Software>
+@model List<Software>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -8,7 +8,7 @@
 <td><a class="btn btn-success" href="/SoftwareInfo/Create/">Yeni Yazılım Ekle</a></td>
 
 <h2>Yazılımlar</h2>
-<table class="table table-bordered">
+<table id="Tablo" class="table table-bordered">
     <thead>
         <tr>
             <th>Yazılım Adı</th>
@@ -28,38 +28,39 @@
     <tbody>
         @foreach (var software in Model)
         {
-        <tr>
-            <td>@software.S_Name</td>
-            <td>@software.S_Version</td>
-            <td>@software.Agreement_ID</td>
-            <td>@software.License_Type</td>
-            <td>@software.License_Option</td>
-            <td>@software.Software_Cost</td>
-            <td>@software.Maintenance_Cost</td>
-            <td>
-                @if (software.In_House)
-                {
-                    <span>In House</span>
-                }
-                else
-                {
-                    <span>Not In House</span>
-                }
-            </td>
-            <td>
-                @if (software.Open_Source_Code)
-                {
-                    <span>Open Source Code</span>
-                }
-                else
-                {
-                    <span>Not Open Source Code</span>
-                }
-            </td>
-            <td><a class="btn btn-primary" href="/SoftwareInfo/Update/@software.S_ID">Güncelle</a></td>
-            <td><a class="btn btn-warning" href="/SoftwareInfo/Delete/@software.S_ID">Sil</a></td>
-            <td><a class="btn btn-info" href="/SoftwareInfo/Info/@software.S_ID">Info</a></td>
-        </tr>
+            <tr>
+                <td>@software.S_Name</td>
+                <td>@software.S_Version</td>
+                <td>@software.Agreement_ID</td>
+                <td>@software.License_Type</td>
+                <td>@software.License_Option</td>
+                <td>@software.Software_Cost</td>
+                <td>@software.Maintenance_Cost</td>
+                <td>
+                    @if (software.In_House)
+                    {
+                        <span>In House</span>
+                    }
+                    else
+                    {
+                        <span>Not In House</span>
+                    }
+                </td>
+                <td>
+                    @if (software.Open_Source_Code)
+                    {
+                        <span>Open Source Code</span>
+                    }
+                    else
+                    {
+                        <span>Not Open Source Code</span>
+                    }
+                </td>
+                <td><a class="btn btn-primary" href="/SoftwareInfo/Update/@software.S_ID">Güncelle</a></td>
+                <td><a class="btn btn-warning" href="/SoftwareInfo/Delete/@software.S_ID">Sil</a></td>
+                <td><a class="btn btn-info" href="/SoftwareInfo/Info/@software.S_ID">Info</a></td>
+            </tr>
         }
     </tbody>
 </table>
+

@@ -14,9 +14,12 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
          YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: Infrastructure
-        public ActionResult Index()
+        public ActionResult Index(Software software)
         {
             var model = db.Infrastructure.Include(x=>x.Software).ToList();
+            //SqlParameter softwareID = new SqlParameter("@id", software.S_ID);
+            //var model = db.Database.SqlQuery<Infrastructure>("SelectInfra").ToList();
+
             return View(model);
         }
 

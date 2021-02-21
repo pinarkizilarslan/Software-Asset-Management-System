@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<table class="table table-condensed">
+<table id="Tablo" class="table table-condensed">
     <thead>
         <tr>
             <th>Kullanıcı Adı</th>
@@ -15,20 +15,23 @@
             <th>Kullanıcı Tipi</th>
             <th>Birim Adı</th>
             <th>Başlama Tarihi</th>
+            <th>Yazılımlar</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var user in Model)
         {
-            <tr>
-                <td>@user.User.First_Name</td>
-                <td>@user.User.Last_Name</td>
-                <td>@user.User.U_Email</td>
-                <td>@user.User.U_TelNo</td>
-                <td>@user.User.U_Type</td>
-                <td>@user.Department.D_Name</td>
-                <td>@user.StartDate.ToShortDateString()</td>
-            </tr>
+        <tr>
+            <td>@user.User.First_Name</td>
+            <td>@user.User.Last_Name</td>
+            <td>@user.User.U_Email</td>
+            <td>@user.User.U_TelNo</td>
+            <td>@user.User.U_Type</td>
+            <td>@user.Department.D_Name</td>
+            <td>@user.StartDate.ToShortDateString()</td>
+
+            <td><a class="btn btn-info" href="/User/Info/@user.User.U_ID">Yazılımlar</a></td>
+        </tr>
         }
     </tbody>
 </table>

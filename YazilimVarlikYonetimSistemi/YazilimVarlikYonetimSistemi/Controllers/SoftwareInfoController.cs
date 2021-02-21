@@ -16,7 +16,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         // GET: SoftwareInfo
         public ActionResult Index()
         {
-            var model = db.Software.ToList();
+            var model = db.Database.SqlQuery<Software>("SelectSoftware").ToList();
             return View(model);
         }
 
