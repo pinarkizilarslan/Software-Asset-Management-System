@@ -1,5 +1,4 @@
-﻿@using YazilimVarlikYonetimSistemi.Models.Model
-@model List<Software>
+﻿@*@model YazilimVarlikYonetimSistemi.Models.Model.Usage
 @{
     ViewBag.Title = "Report";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -10,7 +9,7 @@
         <tr>
             <th>Yazılım Adı</th>
             <th>Kalan Ay</th>
-   
+
         </tr>
     </thead>
     <tbody>
@@ -22,4 +21,35 @@
             </tr>
         }
     </tbody>
-</table>
+</table>*@
+
+@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "Report";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <th>CustomerId</th>
+            <th>Name</th>
+        </tr>
+        @foreach (DataRow row in Model.Rows)
+        {
+            <tr>
+                <td>@row["S_Name"]</td>
+                <td>@row["Kaç Ay Kaldı"]</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

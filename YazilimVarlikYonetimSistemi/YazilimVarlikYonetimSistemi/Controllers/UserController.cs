@@ -16,6 +16,8 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         public ActionResult Index()
         {
             var model = db.Dependent.Include(x => x.Department).Include(x => x.User).ToList();
+            //var model = db.Database.SqlQuery<User>("SelectUser").ToList();
+            //return View(model);
             return View(model);
         }
     }
