@@ -943,6 +943,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\SeoHelper.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DataContext\YazilimVarlikYonetimSistemiContext.cs" />
     <Compile Include="Models\Model\Department.cs" />

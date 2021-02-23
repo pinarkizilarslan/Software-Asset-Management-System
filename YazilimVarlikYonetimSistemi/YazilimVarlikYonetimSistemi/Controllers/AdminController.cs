@@ -12,6 +12,8 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: Admin
+
+        [Route("Admin/Anasayfa")]
         public ActionResult Index()
         {
             ViewBag.SoftwareCount = db.Software.Count();
@@ -20,7 +22,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             var sorgu = db.Department.ToList();
             return View(sorgu);
         }
-
+        [Route("")]
         public ActionResult Login()
         {
             return View();

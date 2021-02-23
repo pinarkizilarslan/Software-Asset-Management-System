@@ -14,6 +14,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
          YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: Infrastructure
+        [Route("AltYapı/Bilgileri")]
         public ActionResult Index(Software software)
         {
             var model = db.Infrastructure.Include(x=>x.Software).ToList();

@@ -14,6 +14,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: Usage
+        [Route("Kullanım/Bilgileri")]
         public ActionResult Index()
         {
             var model = db.Usage.Include(x => x.Software).Include(a=>a.Department).ToList();
