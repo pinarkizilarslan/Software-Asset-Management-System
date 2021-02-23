@@ -22,6 +22,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             var sorgu = db.Department.ToList();
             return View(sorgu);
         }
+
         [Route("")]
         public ActionResult Login()
         {
