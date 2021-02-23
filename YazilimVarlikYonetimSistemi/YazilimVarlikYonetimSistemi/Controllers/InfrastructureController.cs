@@ -17,9 +17,6 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         public ActionResult Index(Software software)
         {
             var model = db.Infrastructure.Include(x=>x.Software).ToList();
-            //SqlParameter softwareID = new SqlParameter("@id", software.S_ID);
-            //var model = db.Database.SqlQuery<Infrastructure>("SelectInfra").ToList();
-
             return View(model);
         }
 
@@ -37,7 +34,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Kaydet(Infrastructure infra)
+        public ActionResult Save(Infrastructure infra)
         {
             var software = db.Software.Where(x => x.S_ID == infra.Software.S_ID).FirstOrDefault();
             infra.Software = software;

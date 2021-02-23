@@ -975,9 +975,10 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Admin\Login.cshtml" />
     <Content Include="Views\SoftwareInfo\Update.cshtml" />
-    <Content Include="Views\Report\Report.cshtml" />
+    <Content Include="Views\Report\TimeReport.cshtml" />
     <Content Include="Views\Report\Index.cshtml" />
     <Content Include="Views\User\Info.cshtml" />
+    <Content Include="Views\Report\CostReport.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     public class UserController : Controller
     {
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
+        private DataTable dataTable = new DataTable();
         // GET: User
         public ActionResult Index()
         {
@@ -19,6 +22,19 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             //var model = db.Database.SqlQuery<User>("SelectUser").ToList();
             //return View(model);
             return View(model);
+        }
+
+        public ActionResult Info(int id)
+        {
+            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
+            database.Open();
+            SqlCommand cmd = new SqlCommand("stp_SelectUserInfo", database);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter dataAdaptor = new SqlDataAdapter(cmd);
+            dataAdaptor.Fill(dataTable);
+            database.Close();
+            return View(dataTable);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
         // GET: Report
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
+        private DataTable dataTable = new DataTable();
+
 
         public ActionResult Index()
         {
@@ -21,12 +24,31 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             return View(model);
         }
 
-        public ActionResult Report(int id)
+        public ActionResult TimeReport(int id)
         {
-            SqlParameter param1 = new SqlParameter("@id", id);
-            db.Database.ExecuteSqlCommand("ReportYear @id", param1);
-            ViewBag.saat = DateTime.Now;
-            return RedirectToAction("Index");
+            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
+            database.Open();
+            SqlCommand cmd = new SqlCommand("stp_TimeReport", database);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter dataAdaptor = new SqlDataAdapter(cmd);
+            dataAdaptor.Fill(dataTable);
+            database.Close();
+            return View(dataTable);
+        }
+
+        public ActionResult CostReport(int id)
+        {
+            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
+            database.Open();
+            SqlCommand cmd = new SqlCommand("stp_CostReport", database);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataAdapter dataAdaptor = new SqlDataAdapter(cmd);
+            dataAdaptor.Fill(dataTable);
+            database.Close();
+            return View(dataTable);
+
         }
     }
 }

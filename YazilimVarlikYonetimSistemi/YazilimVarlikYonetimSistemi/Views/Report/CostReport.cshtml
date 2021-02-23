@@ -2,7 +2,7 @@
 @using System.Data
 @model DataTable
 @{
-    ViewBag.Title = "Info";
+    ViewBag.Title = "CostReport";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -12,8 +12,7 @@
     <thead>
         <tr>
             <th>Yazılım Adı</th>
-            <th>Yazılım Anahtarı</th>
-            <th>Versiyon</th>
+            <th>Yazılımın Toplam Maliyeti</th>
 
 
         </tr>
@@ -23,8 +22,7 @@
         {
             <tr>
                 <td>@row["Yazılım Adı"]</td>
-                <td>@row["Yazılım Anahtarı"]</td>
-                <td>@row["Versiyon"]</td>
+                <td>@row["Yazılımın Toplam Maliyeti"] ₺</td>
 
             </tr>
         }

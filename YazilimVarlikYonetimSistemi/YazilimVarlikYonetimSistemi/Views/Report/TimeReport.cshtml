@@ -2,7 +2,7 @@
 @using System.Data
 @model DataTable
 @{
-    ViewBag.Title = "Info";
+    ViewBag.Title = "TimeReport";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -12,8 +12,8 @@
     <thead>
         <tr>
             <th>Yazılım Adı</th>
-            <th>Yazılım Anahtarı</th>
-            <th>Versiyon</th>
+            <th>Sonlanma Tarihi</th>
+            <th>Kalan Süre</th>
 
 
         </tr>
@@ -21,12 +21,12 @@
     <tbody>
         @foreach (DataRow row in Model.Rows)
         {
-            <tr>
-                <td>@row["Yazılım Adı"]</td>
-                <td>@row["Yazılım Anahtarı"]</td>
-                <td>@row["Versiyon"]</td>
+        <tr>
+            <td>@row["S_Name"]</td>
+            <td>@row["Sonlanma Tarihi"]</td>
+            <td>@row["Kaç Ay Kaldı"] Ay</td>
 
-            </tr>
+        </tr>
         }
     </tbody>
 </table>

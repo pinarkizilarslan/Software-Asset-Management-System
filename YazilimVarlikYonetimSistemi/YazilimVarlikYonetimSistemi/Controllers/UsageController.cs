@@ -42,7 +42,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         }
 
         [HttpPost]
-        public ActionResult Kaydet(Usage usage)
+        public ActionResult Save(Usage usage)
         {
             var software = db.Software.Where(x => x.S_ID == usage.Software.S_ID).FirstOrDefault();
             var department = db.Department.Where(x => x.D_ID == usage.Department.D_ID).FirstOrDefault();
