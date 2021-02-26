@@ -16,7 +16,6 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         private DataTable dataTable = new DataTable();
         // GET: User
-        [Route("Kullanıcı/Bilgileri")]
         public ActionResult Index()
         {
             var model = db.Dependent.Include(x => x.Department).Include(x => x.User).ToList();
@@ -27,7 +26,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
 
         public ActionResult Info(int id)
         {
-            SqlConnection database = new SqlConnection("data source=DAMLA\\MSSQLSERVER01;Database=YazilimVarlikYonetimSistemi;Integrated Security=True;");
+            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
             database.Open();
             SqlCommand cmd = new SqlCommand("stp_SelectUserInfo", database);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;

@@ -14,7 +14,6 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: SoftwareInfo
-        [Route("Yazılım/Bilgileri")]
         public ActionResult Index()
         {
             var model = db.Database.SqlQuery<Software>("SelectSoftware").ToList();

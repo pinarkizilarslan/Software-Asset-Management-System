@@ -13,7 +13,6 @@ namespace YazilimVarlikYonetimSistemi.Controllers
     {
         YazilimVarlikYonetimSistemiContext db = new YazilimVarlikYonetimSistemiContext();
         // GET: Department
-        
         public ActionResult Index(int id)
         {
             var model = db.Department.Include(x => x.Usage).Include(x => x.Dependents).Where(x => x.D_ID==id).ToList();
