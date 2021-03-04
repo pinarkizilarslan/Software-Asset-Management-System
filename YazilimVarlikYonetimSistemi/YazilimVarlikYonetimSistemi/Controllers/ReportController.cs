@@ -26,7 +26,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
 
         public ActionResult TimeReport(int id)
         {
-            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
+            SqlConnection database = new SqlConnection("data source=DAMLA\\MSSQLSERVER01;Database=YazilimVarlikYonetimSistemi;Integrated Security=True;");
             database.Open();
             SqlCommand cmd = new SqlCommand("stp_TimeReport", database);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -39,7 +39,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
 
         public ActionResult CostReport(int id)
         {
-            SqlConnection database = new SqlConnection("data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;");
+            SqlConnection database = new SqlConnection("data source=DAMLA\\MSSQLSERVER01;Database=YazilimVarlikYonetimSistemi;Integrated Security=True;");
             database.Open();
             SqlCommand cmd = new SqlCommand("stp_CostReport", database);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
