@@ -11,6 +11,7 @@
             <th>Departman Adı</th>
             <th>Süre Raporu</th>
             <th>Maliyet Raporu</th>
+            <th>Mail</th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
             <td>@dept.D_Name</td>
             <td><a class="btn btn-info" href="/Report/TimeReport/@dept.D_ID">Rapor Ver</a></td>
             <td><a class="btn btn-success" href="/Report/CostReport/@dept.D_ID">Rapor Ver</a></td>
+            <td><a class="btn btn-danger" href="/Report/Page_Load/@dept.D_ID">Mail Olarak Gönder</a></td>
         </tr>
         }
     </tbody>

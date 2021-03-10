@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using YazilimVarlikYonetimSistemi.Models.DataContext;
 using YazilimVarlikYonetimSistemi.Models.Model;
+using YazilimVarlikYonetimSistemi.Connection;
 
 namespace YazilimVarlikYonetimSistemi.Controllers
 {
@@ -19,14 +20,12 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         public ActionResult Index()
         {
             var model = db.Dependent.Include(x => x.Department).Include(x => x.User).ToList();
-            //var model = db.Database.SqlQuery<User>("SelectUser").ToList();
-            //return View(model);
             return View(model);
         }
 
         public ActionResult Info(int id)
         {
-            SqlConnection database = new SqlConnection("data source=DAMLA\\MSSQLSERVER01;Database=YazilimVarlikYonetimSistemi;Integrated Security=True;");
+            SqlConnection database = new SqlConnection(ConnectionString.connectionString);
             database.Open();
             SqlCommand cmd = new SqlCommand("stp_SelectUserInfo", database);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
