@@ -150,7 +150,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             HTMLWorker htmlparser = new HTMLWorker(pdfDoc);
 
             #region Türkçe karakter sorunu için yazılması gereken kod bloğu.
-            FontFactory.Register(Path.Combine("C:\\Windows\\Fonts\\Arial.ttf"), "Garamond"); // kendi türkçe karakter desteği olan fontunuzu da girebilirsiniz.
+            FontFactory.Register(Path.Combine("C:\\Windows\\Fonts\\Arial.ttf"), "Garamond"); 
             StyleSheet css = new StyleSheet();
             css.LoadTagStyle("body", "face", "Garamond");
             css.LoadTagStyle("body", "encoding", "Identity-H");
@@ -184,7 +184,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
                 }
                 catch (Exception)
                 {
-                    ViewBag.Error = "Mesaj Gönderilken hata olıuştu"; //Bu kısımlarda ise kullanıcıya bilgi vermek amacı ile olur
+                    ViewBag.Error = "Mesaj Gönderilken hata olıuştu"; 
                     return false;
                 }
 

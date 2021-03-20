@@ -48,7 +48,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
                     SqlParameter param3 = new SqlParameter("@minStroage", infra.Min_Storeage);
                     SqlParameter param4 = new SqlParameter("@sID", infra.Software.S_ID);
 
-                    db.Database.ExecuteSqlCommand("CreateInfra @os, @minRam, @minStroage, @sID", param1, param2, param3, param4);
+                    db.Database.ExecuteSqlCommand("stp_CreateInfra @os, @minRam, @minStroage, @sID", param1, param2, param3, param4);
                 }
                 else
                 {
@@ -58,7 +58,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
                     SqlParameter param4 = new SqlParameter("@sID", infra.Software.S_ID);
                     SqlParameter param5 = new SqlParameter("@id", infra.I_ID);
 
-                    db.Database.ExecuteSqlCommand("UpdateInfra @id, @os, @minRam, @minStroage, @sID", param5, param1, param2, param3, param4);
+                    db.Database.ExecuteSqlCommand("stp_UpdateInfra @id, @os, @minRam, @minStroage, @sID", param5, param1, param2, param3, param4);
                 }
 
                 return RedirectToAction("Index");
@@ -92,7 +92,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             try
             {
                 SqlParameter param = new SqlParameter("@id", id);
-                db.Database.ExecuteSqlCommand("DeleteInfra @id", param);
+                db.Database.ExecuteSqlCommand("stp_DeleteInfra @id", param);
                 return RedirectToAction("Index");
             }
             catch

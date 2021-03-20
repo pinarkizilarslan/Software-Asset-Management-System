@@ -16,7 +16,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         // GET: SoftwareInfo
         public ActionResult Index()
         {
-            var model = db.Database.SqlQuery<Software>("SelectSoftware").ToList();
+            var model = db.Database.SqlQuery<Software>("stp_SelectSoftware").ToList();
             return View(model);
         }
 
@@ -42,7 +42,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
                 SqlParameter param8 = new SqlParameter("@openSourceCode", software.Open_Source_Code);
                 SqlParameter param9 = new SqlParameter("@sVersion", software.S_Version);
 
-                db.Database.ExecuteSqlCommand("CreateSoftware @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param1, param2, param3, param4, param5, param6, param7, param8, param9);
+                db.Database.ExecuteSqlCommand("stp_CreateSoftware @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param1, param2, param3, param4, param5, param6, param7, param8, param9);
                 return RedirectToAction("Index");
             }
             catch
@@ -84,7 +84,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
                 SqlParameter param8 = new SqlParameter("@openSourceCode", software.Open_Source_Code);
                 SqlParameter param9 = new SqlParameter("@sVersion", software.S_Version);
 
-                db.Database.ExecuteSqlCommand("UpdateSoftwaree @S_ID, @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param10, param1, param2, param3, param4, param5, param6, param7, param8, param9);
+                db.Database.ExecuteSqlCommand("stp_UpdateSoftware @S_ID, @sName, @agreementID, @licenseType, @licenseOption, @softwareCost, @maintaCost,  @inHouse, @openSourceCode, @sVersion", param10, param1, param2, param3, param4, param5, param6, param7, param8, param9);
                 return RedirectToAction("Index");
             }
             catch
@@ -105,7 +105,7 @@ namespace YazilimVarlikYonetimSistemi.Controllers
             try
             {
                 SqlParameter param = new SqlParameter("@id", id);
-                db.Database.ExecuteSqlCommand("DeleteSoftware @id", param);
+                db.Database.ExecuteSqlCommand("stp_DeleteSoftware @id", param);
                 return RedirectToAction("Index");
             }
             catch

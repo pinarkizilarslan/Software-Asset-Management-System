@@ -14,7 +14,6 @@ namespace YazilimVarlikYonetimSistemi.Controllers
         // GET: Admin
         public ActionResult Index()
         {
-            ViewBag.UsageExpired = db.Database.SqlQuery<Usage>("spt_UsageExpired").ToString();
             ViewBag.SoftwareCount = db.Software.Count();
             ViewBag.DepartmentCount = db.Department.Count();
             ViewBag.UserCount = db.User.Count();

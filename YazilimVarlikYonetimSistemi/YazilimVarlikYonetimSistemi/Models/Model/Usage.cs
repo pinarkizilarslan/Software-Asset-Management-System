@@ -15,10 +15,7 @@ namespace YazilimVarlikYonetimSistemi.Models.Model
 
         [Required, StringLength(100, ErrorMessage = "Can be a maximum of 100 characters!")]
         public string Software_Key { get; set; }
-        
-        public DateTime Usage_Time { get; set; }
-
-        
+               
         public DateTime ExpiryDate { get; set; }
 
         [Required]

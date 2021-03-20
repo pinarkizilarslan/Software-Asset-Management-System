@@ -7,6 +7,6 @@ namespace YazilimVarlikYonetimSistemi.Connection
 {
     public class ConnectionString
     {
-        public static string connectionString { get; } = "data source=DESKTOP-2MQBITI\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;";
+        public static string connectionString { get; } = "data source=DAMLA\\MSSQLSERVER01; database=YazilimVarlikYonetimSistemi; integrated security= True;";
     }
 }
