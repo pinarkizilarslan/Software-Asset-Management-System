@@ -59,3 +59,11 @@ Fig.5 Excel printouts
 <img width="298" alt="Resim6" src="https://user-images.githubusercontent.com/63308712/112659850-da492580-8e65-11eb-9fde-12f33a24e116.png">
 Fig.6 PDF printouts
 <br />
+<br />
+<br />
+
+### Team Members:
+* [Pınar Kızılarslan](https://github.com/pinarkizilarslan)
+* [Damla Dalgıç](https://github.com/damladlg)
+* [Ayşe Kaya](https://github.com/ayseekaya)
+<br />
